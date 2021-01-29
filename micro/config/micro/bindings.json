@@ -1,0 +1,19 @@
+{
+    "Alt-/": "lua:comment.comment",
+    "Alt-a": "SelectAll",
+    "Alt-e": "CommandMode",
+    "Alt-s": "SaveAll",
+    "Ctrl-d": "DeleteChar",
+    "Ctrl-a": "StartOfLine",
+    "Ctrl-e": "EndOfLine",
+    "Ctrl-k": "CutToEndOfLine",
+    "Ctrl-r": "HSplit",
+    "Ctrl-y": "Paste",
+    "CtrlDown": "CursorPageDown",
+    "CtrlLeft": "PreviousTab",
+    "CtrlRight": "NextTab",
+    "CtrlShiftDown": "CursorEnd",
+    "CtrlShiftUp": "CursorStart",
+    "CtrlUnderscore": "lua:comment.comment",
+    "CtrlUp": "CursorPageUp"
+}

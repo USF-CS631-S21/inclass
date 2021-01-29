@@ -1,0 +1,65 @@
+# ARM assembly language
+
+filetype: arm_asm
+
+detect:
+    filename: "\\.(S|s)$"
+
+rules:
+    ## Instructions
+    # Load/store instructions
+    - statement: "\\b(?i)(ld[cmr]|ldr[bh]|st[cmr]|str[bh])(?-i)\\b"
+    # Branch instructions
+    - statement: "\\b(?i)(b|b(l|x|eq|ne|cs|cc|mi|pl|vs|vc|hi|ls|ge|lt|gt|le))(?-i)\\b"
+    # Pseudo instructions
+    - statement: "\\b(?i)(push|pop)(?-i)\\b"
+    # Shift and rotate
+    - statement: "\\b(?i)(as[lr]|ls[lr]|ro[lr])(?-i)\\b"
+    # Everything else
+    # Could put all conditions on all instructions but no good way to say that in YAML
+    - statement: "\\b(?i)(adc|add|and|bic|cdp|cmn|cmp|eor|mcr|mla|mov|mrc|mrs|mul|mvn|orr|rsb|rsc|sbc|sub|swi|swp|teq|tst)(?-i)\\b"
+    
+    ## Registers
+    - identifier: "\\b(?i)(r[0-9]|r1[012345]|[fis]p|lr|pc|cpsr)(?-i)\\b"
+
+    ## Constant numbers
+    # In immediates, with leading #
+    - constant.number: "#(0b[0-1]+|0x[0-9a-fA-F]+|[0-9]+)\\b" 
+    # In directives, without leading #
+    - constant.number: "\\b([0-9]+)\\b"
+
+    ## Constant strings
+    # Strings, using double quotes
+    - constant.string:
+        start: "\""
+        end: "\""
+        skip: "\\\\."
+        rules:
+            - constant.specialChar: "\\\\."
+    # Characters, using single quotes
+    - constant.string:
+        start: "\'"
+        end: "\'"
+        skip: "\\\\."
+        rules:
+            - constant.specialChar: "\\\\."
+
+    # Directives. Sorta preprocessor
+    - preproc: "(\\.align|\\.balign|\\.data|\\.equ|\\.end|\\.extern|\\.func|\\.global|\\.section|\\.skip|\\.text)"
+    
+    # Data storage. Sorta types
+    - type: "(\\.ascii|\\.asciz|\\.byte|\\.hword|\\.word)"
+
+    # Single line comments
+    - comment:
+        start: "@"
+        end: "$"
+        rules:
+            - todo: "(TODO|XXX|FIXME):?"
+    # Block comments
+    - comment:
+        start: "/\\*"
+        end: "\\*/"
+        rules:
+            - todo: "(TODO|XXX|FIXME):?"
+            

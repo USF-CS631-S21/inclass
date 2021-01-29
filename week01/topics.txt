@@ -1,0 +1,44 @@
+CS 631 Spring 2021 Week01 Topics
+
+Campuwise code formatting
+GitHub user ids - Google Form will be sent
+Lab01 coming soon - extend scanner we develop in class today
+
+Introduction to the C Programming Language
+
+Example: hello.c
+
+Include files
+Functions
+Statements
+Expressions
+
+Note: tabs vs spaces for indentation
+
+Example: args.c
+
+Data
+  Primitive types: char, int, float, double
+  Composite types: arrays ([]), structs, and unions
+Data Allocation
+  Global
+  Stack
+  Heap (malloc/free)
+  
+Examples
+
+hello.c
+args.c
+
+Makefiles
+Note: tabs necessary for indentation
+
+Scanning
+
+EBNF
+Incrementatl development
+
+scan1.c - simple symbols
+scan2.c - intlits, symbols, ignore whitespace, command line
+
+Lab01 - Extend Scanner 
