@@ -183,17 +183,18 @@ void scan_table_scan(struct scan_table_st *st, char *input) {
 
 int main(int argc, char **argv) {
     struct scan_table_st scan_table;
-    char *input1 = "1 + 2";
+    char *input;
+
+    if (argc != 2) {
+        printf("Usage: scan <expression>\n");
+        printf("  Example: scan \"1 + 2\"\n");
+        exit(-1);
+    }
+
+    input = argv[1];
 
     scan_table_init(&scan_table);
-    scan_table_scan(&scan_table, input1);
-    scan_table_print(&scan_table);
-    printf("\n");
-
-    char *input2 = "1 + 2 - 3 * 4 / 5";
-    
-    scan_table_init(&scan_table);
-    scan_table_scan(&scan_table, input2);
+    scan_table_scan(&scan_table, input);
     scan_table_print(&scan_table);
 
     return 0;
