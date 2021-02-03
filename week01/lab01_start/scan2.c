@@ -10,9 +10,9 @@
 # Scanner EBNF (microsyntax)
 
 tokens ::= (token)*
-token  ::= integer | symbol
+token  ::= intlit | symbol
 symbol ::= '+' | '-' | '*' | '/'
-integer ::= digit (digit)*
+intlit ::= digit (digit)*
 digit  ::= '0' | '1' | ... | '9'
 
 # Ignore
@@ -84,7 +84,7 @@ bool scan_is_whitespace(char ch) {
     return (ch == ' ') || (ch == '\t');
 }
 
-char *scan_whitespace(char *p, char *end) {
+char * scan_whitespace(char *p, char *end) {
     while(scan_is_whitespace(*p) && (p < end)) {
         p += 1;
     }
