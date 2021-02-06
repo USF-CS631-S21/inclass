@@ -6,5 +6,5 @@ all : $(PROGS)
 	gcc -g -o $@ $<
 	
 clean :
-	rm -f $(PROGS) *~
+	rm -f $(PROGS)
 

@@ -1,0 +1,38 @@
+CS 631 Spring 2021 Week02 Topics
+
+Campuwise code formatting - fixed
+Other examples: text, sh
+GitHub user ids - See Campuswire
+
+Review Data in C
+
+Pointers
+    Can point to data in memory
+    Must match types, int, int *
+    Used to pass data by reference
+    
+Scanning
+
+Goal: given and array of characters produce an array of tokens
+
+What is a token?
+Where is the array?
+
+EBNF for microsyntax
+
+scan1.c - simple symbols
+scan2.c - intlits, symbols, ignore whitespace, command line
+
+Lab01 - Extend Scanner 
+
+Parsing
+
+Accept valid sequences of tokens or reject invalid sequences
+Generate parse tree
+
+parsing: tokens -> parse_tree
+
+EBNF for syntax
+
+Give example
+
