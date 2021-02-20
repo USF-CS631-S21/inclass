@@ -54,7 +54,7 @@ void min_test(int a0, int a1) {
     r = min_c(a0, a1);
     printf("min_c(%d, %d) = %d\n", a0, a1, r);
 
-    r = add_s(a0, a1);
+    r = min_s(a0, a1);
     printf("min_s(%d, %d) = %d\n", a0, a1, r);
 }
 
