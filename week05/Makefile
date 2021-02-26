@@ -1,6 +1,7 @@
 PROGS = main endian
 PROG = main
-OBJS = sum_array_c.o sum_array_s.o sum_array2_s.o
+OBJS = sum_array_c.o sum_array_s.o sum_array2_s.o add4f_c.o add4f_s.s\
+       fact_c.o fact_s.o strlen_c.o strlen_s.o
 HEADERS = 
 
 CFLAGS = -g
