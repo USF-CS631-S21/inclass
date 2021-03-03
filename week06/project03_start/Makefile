@@ -9,7 +9,7 @@ CFLAGS = -g
 	gcc ${CFLAGS} -c -o $@ $<
 
 %.o : %.s
-	as -o $@ $<
+	as ${CFLAGS} -o $@ $<
 
 all : ${PROG}
 
