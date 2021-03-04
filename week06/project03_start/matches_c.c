@@ -24,12 +24,15 @@ char *substr_c(char *s1, char *s2) {
 
 int matches_c(char *s1, char *s2) {
     int count = 0;
+    char *next;
     
     while (*s1 != '\0') {
-        if (substr_c(s1, s2) != 0) {
+        if ((next = substr_c(s1, s2)) != 0) {
             count += 1;
+            s1 = next + 1;
+        } else {
+            s1 += 1;        
         }
-        s1 += 1;
     }
     return count;
 }
