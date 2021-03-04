@@ -34,5 +34,6 @@ int matches_c(char *s1, char *s2) {
             break;
         }
     }
+
     return count;
 }
