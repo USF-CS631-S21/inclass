@@ -1,6 +1,5 @@
 char *substr_c(char *s1, char *s2) {
     char *p1, *p2, *rv;
-    p1 = s1;
     rv = 0;
 
     while (*s1 != '\0') {
