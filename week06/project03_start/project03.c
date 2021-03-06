@@ -45,7 +45,7 @@ char *substr_test(char *s1, char *s2) {
         found = 1;
         index = (int) (p - s1);
     }
-    printf("substr_c(%s, %s) = %d %d \n", s1, s2, found, index);
+    printf("substr_c(%s, %s) = %d %d\n", s1, s2, found, index);
 
     found = 0;
     index = 0;
@@ -54,7 +54,7 @@ char *substr_test(char *s1, char *s2) {
         found = 1;
         index = (int) (p - s1);
     }
-    printf("substr_s(%s, %s) = %d %d \n", s1, s2, found, index);
+    printf("substr_s(%s, %s) = %d %d\n", s1, s2, found, index);
 }
 
 void matches_test(char *s1, char *s2) {
