@@ -1,4 +1,4 @@
-PROGS = fdiv mallocavoid analyze
+PROGS = fdiv mallocavoid analyze armemu
 OBJS = add2_s.o
 
 CFLAGS = -g
@@ -14,7 +14,8 @@ CFLAGS = -g
 all : ${PROGS}
 
 analyze : analyze.c ${OBJS}
-	gcc ${CFLAGS} -o $@ $< ${OBJS}
+
+armemu : armemu.c ${OBJS}
 
 clean :
 	rm -rf ${PROGS} ${OBJS}
