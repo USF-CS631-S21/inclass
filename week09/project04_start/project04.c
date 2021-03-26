@@ -9,10 +9,13 @@
 #define CMD_LEN 32
 #define STR_LEN 4096
 
+/* Verbose support */
+extern bool g_verbose;
+
 /* Globals to control dynamic analysis and cache simulation */
-extern bool analysis;
-extern int cache_type;
-extern int cache_size;
+extern bool g_analysis;
+extern int g_cache_type;
+extern int g_cache_size;
 
 int max3_c(int a0, int a1, int a2);
 int max3_s(int a0, int a1, int a2);
@@ -261,26 +264,28 @@ void args_get_array(int i, char **argv, int a[], int *n) {
     }
 }
 
-int parse_args(int argc, char **argv, bool *analysis, int *cache_type, int *cache_size) {
+int parse_args(int argc, char **argv) {
     int i = 1;
 
     while (i < argc) {
         if (argv[i][0] != '-') {
             /* Done with optional parameters */
             break;
-        }
-        if (argv[i][0] == '-' && argv[i][1] == 'a') {
-            *analysis = true;
+        } else if (argv[i][0] == '-' && argv[i][1] == 'v') {
+            g_verbose = true;
+            i += 1;
+        } else if (argv[i][0] == '-' && argv[i][1] == 'a') {
+            g_analysis = true;
             i += 1;
         } else if (argv[i][0] == '-' && argv[i][1] == 'd' && argv[i][2] == 'm') {
             i += 1;
-            *cache_type = 0;
-            *cache_size = atoi(argv[i]);
+            g_cache_type = 0;
+            g_cache_size = atoi(argv[i]);
             i += 1;
         } else if (argv[i][0] == '-' && argv[i][1] == 's' && argv[i][2] == 'a') {
             i += 1;
-            *cache_type = 1;
-            *cache_size = atoi(argv[i]);
+            g_cache_type = 1;
+            g_cache_size = atoi(argv[i]);
             i += 1;
         }
     }
@@ -289,7 +294,7 @@ int parse_args(int argc, char **argv, bool *analysis, int *cache_type, int *cach
 }
 
 void print_stats(struct arm_state *asp) {
-    if (analysis) {
+    if (g_analysis) {
         armemu_print(asp);
     }
     if (asp->cache_on) {
@@ -307,7 +312,7 @@ int main(int argc, char **argv) {
         exit(-1);
     }
 
-    i = parse_args(argc, argv, &analysis, &cache_type, &cache_size);
+    i = parse_args(argc, argv);
     
     if (strncmp(argv[i], "max3", CMD_LEN) == 0) {
         max3_test(atoi(argv[i + 1]), atoi(argv[i + 2]), atoi(argv[i + 3]));

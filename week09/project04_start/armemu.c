@@ -6,11 +6,11 @@
 #include "armemu.h"
 
 /* Global for analysis */
-bool analysis;
+bool g_analysis = false;
 
 /* Globals for cache */
-extern int cache_type;
-extern int cache_size;
+extern int g_cache_type;
+extern int g_cache_size;
 
 
 void armemu_init(struct arm_state *asp, uint32_t *fp,
@@ -46,9 +46,9 @@ void armemu_init(struct arm_state *asp, uint32_t *fp,
     asp->regs[3] = a3;
 
     /* Initialize the direct mapped cache */
-    if (cache_size > 0) {
+    if (g_cache_size > 0) {
         asp->cache_on = true;
-        cache_init(asp, cache_size);
+        cache_init(asp, g_cache_size);
     }
 }
 

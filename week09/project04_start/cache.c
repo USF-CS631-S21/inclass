@@ -13,9 +13,9 @@
 /* Globals for cache */
 
 /* Cache type: 0 - directed mapped, 1 - 4-way set associative */
-int cache_type = 0;
+int g_cache_type = 0;
 /* (number of slots, where each slot holds a word) */
-int cache_size = 0;
+int g_cache_size = 0;
 
 void cache_dm_init(struct cache_st *c, int cache_size) {
     c->num_slots = cache_size;
@@ -104,9 +104,9 @@ uint32_t cache_sa_fetch(struct cache_st *c, uint32_t *addr) {
 }
 
 void cache_init(struct arm_state *asp, int cache_size) {
-    if (cache_type == 0) {
+    if (asp->cache_type == 0) {
         cache_dm_init(&(asp->cache), cache_size);
-    } else if (cache_type == 1) {
+    } else if (asp->cache_type == 1) {
         cache_sa_init(&(asp->cache), cache_size);
     }
 }
@@ -114,9 +114,9 @@ void cache_init(struct arm_state *asp, int cache_size) {
 uint32_t cache_fetch(struct arm_state *asp, uint32_t *addr) {
     uint32_t word;
     
-    if (cache_type == 0) {
+    if (asp->cache_type == 0) {
         word = cache_dm_fetch(&(asp->cache), addr);    
-    } else if (cache_type == 1) {
+    } else if (asp->cache_type == 1) {
         word = cache_sa_fetch(&(asp->cache), addr);
     }
 

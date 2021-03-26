@@ -8,7 +8,6 @@
 #define PC 15
 
 /* Simple logging */
-void verbose_init(bool);
 void verbose(char *fmt, ...);
 
 /* Cache simulation  */
@@ -24,6 +23,7 @@ struct cache_slot_st {
 
 /* Add to this struct if needed to support 4-way set associative */
 struct cache_st {
+    int cache_type;
     struct cache_slot_st slots[CACHE_MAX_SLOTS];
     int num_slots;
     uint32_t index_mask;

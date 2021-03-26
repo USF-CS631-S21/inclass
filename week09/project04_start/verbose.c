@@ -8,12 +8,7 @@
 
 #include "armemu.h"
 
-static bool g_verbose;
-
-void verbose_init(bool v) {
-    g_verbose = v;
-}
-
+bool g_verbose = false;
 
 void verbose(char *fmt, ...) {
     if (g_verbose) {
