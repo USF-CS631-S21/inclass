@@ -98,6 +98,7 @@ void stolower_test(char *s) {
     stolower_s(s2);
     printf("stolower_s(%s) = %s\n", s, s2);
 
+    strncpy(s2, s, STR_LEN - 1);
     armemu_init(&state, (uint32_t *) stolower_s, (uint32_t) s2, 0, 0, 0);
     armemu(&state);
     printf("stolower_e(%s) = %s\n", s, s2);
