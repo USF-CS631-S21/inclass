@@ -27,4 +27,4 @@ fact_end:
     bx lr
 
 @ End marker
-	add r0, r0, #0
+    add r0, r0, #0

@@ -28,3 +28,7 @@ fib_rec_end:
     ldr lr, [sp]
     add sp, sp, #16
     bx lr
+
+@ End marker
+    add r0, r0, #0
+    

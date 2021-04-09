@@ -25,3 +25,6 @@ skip:
     b loop
 end:
     bx lr
+
+@ End marker
+    add r0, r0, #0

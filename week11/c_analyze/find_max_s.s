@@ -28,3 +28,7 @@ find_max_not_greater:
 find_max_loop_exit:
     mov r0, r3
     bx lr
+
+@ End marker
+    add r0, r0, #0
+    

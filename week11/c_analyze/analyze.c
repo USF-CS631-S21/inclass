@@ -5,13 +5,12 @@
 /* Test programs to analyze */
 
 
-
+int quadratic_s(int x, int a, int b, int c);
 int sum_array_s(int *array, int len);
 int find_max_s(int *array, int len);
 int fact_s(int n);
 int fib_rec_s(int n);
-int substr_s(char *s1, char *s2);
-int quadratic_s(int x, int a, int b, int c);
+int stolower_s(char *s1, char *s2);
 
 
 /* Analyze struct */
@@ -117,8 +116,8 @@ int main(int argc, char **argv) {
 	printf("\n");
 
 	analyze_init(&analyze);
-	analyze_code(&analyze, (uint32_t *) substr_s);
-	analyze_print(&analyze, "substr_s");
+	analyze_code(&analyze, (uint32_t *) stolower_s);
+	analyze_print(&analyze, "stolower_s");
 	printf("\n");
 
 	return 0;

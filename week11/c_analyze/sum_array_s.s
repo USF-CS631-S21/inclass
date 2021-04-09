@@ -18,4 +18,4 @@ sum_array_loop_exit:
     bx lr
     
 @ End marker
-	add r0, r0, #0
+    add r0, r0, #0
