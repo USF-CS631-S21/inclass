@@ -4,7 +4,7 @@ main:
     mov r0, #30         @ set up parameters
     mov r1, #10
     mov r2, #20
-    bl max_3
+    bl max3_s
     add r0, r0, #0      @ end marker
     
 max2_s:
