@@ -133,7 +133,7 @@
           <int>32</int>
         </entry>
       </elementAttributes>
-      <pos x="240" y="740"/>
+      <pos x="220" y="740"/>
     </visualElement>
     <visualElement>
       <elementName>And</elementName>
@@ -168,11 +168,6 @@
         </entry>
       </elementAttributes>
       <pos x="1220" y="540"/>
-    </visualElement>
-    <visualElement>
-      <elementName>32bit_eq.dig</elementName>
-      <elementAttributes/>
-      <pos x="260" y="700"/>
     </visualElement>
     <visualElement>
       <elementName>Text</elementName>
@@ -215,20 +210,6 @@
       <elementAttributes>
         <entry>
           <string>Value</string>
-          <long>3800039424</long>
-        </entry>
-        <entry>
-          <string>Bits</string>
-          <int>32</int>
-        </entry>
-      </elementAttributes>
-      <pos x="240" y="700"/>
-    </visualElement>
-    <visualElement>
-      <elementName>Const</elementName>
-      <elementAttributes>
-        <entry>
-          <string>Value</string>
           <long>0</long>
         </entry>
         <entry>
@@ -253,8 +234,8 @@
       <p2 x="1220" y="160"/>
     </wire>
     <wire>
-      <p1 x="240" y="740"/>
-      <p2 x="260" y="740"/>
+      <p1 x="220" y="740"/>
+      <p2 x="240" y="740"/>
     </wire>
     <wire>
       <p1 x="-300" y="680"/>
@@ -291,10 +272,6 @@
     <wire>
       <p1 x="340" y="860"/>
       <p2 x="1220" y="860"/>
-    </wire>
-    <wire>
-      <p1 x="240" y="700"/>
-      <p2 x="260" y="700"/>
     </wire>
     <wire>
       <p1 x="1200" y="540"/>
